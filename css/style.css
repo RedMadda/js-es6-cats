@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#guests-list{
+    border: 1px solid black;
+    background-color: blanchedalmond;
+    padding: 20px;
+}
+
+#print1{
+    width: calc(100% / 8 - 20%);
+    height: 100%;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
