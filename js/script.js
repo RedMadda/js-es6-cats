@@ -98,7 +98,7 @@ maschi.forEach((gatto, i)=>{
     aFio += 2;
     colFiocMasc = "rgba(0,0,255," + aFio / 10 + ")";
     // console.log(colFiocMasc);
-    document.getElementById("maschi").innerHTML += i+1 + ") " + gatto.nome + ": <i class='fas fa-ribbon' style='color:" + colFiocMasc + "'></i>; </br>";
+    document.getElementById("maschi").innerHTML += i+1 + ") " + gatto.nome + " <i class='fas fa-cat' style='color:" + gatto.colore +"'></i> <i class='fas fa-ribbon' style='color:" + colFiocMasc + "'></i>; </br>";
     
 });
 
@@ -120,31 +120,30 @@ let colFiocFem;
 aFio = 1; 
 
 femmine.forEach((gatta, i) => {
-console.log(aFio);
+// console.log(aFio);
     aFio += 2;
     colFiocFem = "rgba(255,13,116," + aFio / 10 + ");";
-    console.log(colFiocFem);
+    // console.log(colFiocFem);
     document.getElementById("femmine").innerHTML += `
-    ${i+1}) ${gatta.nome} <i class='fas fa-ribbon' style='color:${colFiocFem}'></i>; </br>
+    ${i+1}) ${gatta.nome} <i class='fas fa-cat' style='color:${gatta.colore}'></i> <i class='fas fa-ribbon' style='color:${colFiocFem}'></i>; </br>
     `
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Milestone 3 Creare un nuovo array con prima tutti i gattini femmina e poi tutti i gattini maschio, inserendo solamente nome, colore e opacità del fiocco per ogni gatto.
+
+const femMasc = [...femmine,...maschi];
+
+ aFio = 1;
+ aFioMas = 1;
+
+femMasc.forEach((gatto, i) => {
+    aFio += 2;
+    aFioMas +=0.9;
+    colFiocFem = "rgba(255,13,116," + aFio / 10 + ");";
+
+    colFiocMasc = "rgba(0,0,255," + aFioMas / 10 + ")";
+    console.log("Mas: ", colFiocMasc);
+    // console.log("Fem: "+ colFiocFem);
+    document.getElementById("tutti").innerHTML += `
+    ${i+1}) ${gatto.nome} <i class='fas fa-cat' style='color:${gatto.colore}'></i> <i class='fas fa-ribbon' style='color:${(gatto.sesso == "m") ? colFiocMasc : colFiocFem}'></i>; </br>`
+});
